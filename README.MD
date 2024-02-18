@@ -6,7 +6,7 @@ INFORMATION
 - Maximum of 10 boards are allowed to be created due to Trello free version
 - It's preferable to delete boards before running the full suite again
 - The search function might fail, but usually works for the second or third try
-- In config.js you can turn of headless mode by commenting out some capabilities.
+- In config.js you can turn off headless mode by commenting out some capabilities.
 - For _chrome_ it's **"goog:chromeOptions": {args: ["headless", "disable-gpu"],},**
 - For _firefox_ it's **"moz:firefoxOptions": {args: ["-headless"],},**
 - Use **npm run wdio** to start running the tests
