@@ -1,9 +1,5 @@
 const BoardsComponent = require("./components/boards.component");
-const NavibarComponent = require("./components/navibar.component");
-const {
-  waitUntilElemDisplayed,
-  waitUntilPageLoads,
-} = require("../utils/waiters");
+const { waitUntilElemDisplayed } = require("../utils/waiters");
 
 class BoardsPage {
   async getBoardsHeaderText() {

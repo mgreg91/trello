@@ -1,6 +1,5 @@
 const { $ } = require("@wdio/globals");
 const Page = require("./page");
-const { PAGE_URL } = require("../utils/config");
 const { waitUntilPageLoads } = require("../utils/waiters");
 
 class LoginPage extends Page {
