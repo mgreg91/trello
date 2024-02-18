@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "wdio": "wdio run ./wdio.conf.js"
+    "wdio": "wdio run ./wdio.conf.js",
+    "login": "wdio run ./wdio.conf.js --suite login",
+    "logout": "wdio run ./wdio.conf.js --suite logout",
+    "create_boards": "wdio run ./wdio.conf.js --suite create_boards",
+    "create_card": "wdio run ./wdio.conf.js --suite create_card",
+    "search_card_board": "wdio run ./wdio.conf.js --suite search_card_board"
   },
   "keywords": [
     "Trello",
