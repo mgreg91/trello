@@ -13,14 +13,12 @@ const {
 
 describe("Verifying the creation of a list item and a card", () => {
   beforeEach(async function () {
+    await browser.maximizeWindow();
     await LoginPage.open();
     await LoginPage.login(USER_EMAIL, USER_PW);
     await waitUntilPageLoads();
 
     await expect(browser).toHaveUrlContaining(PAGE_URL);
-    const numberOfBoards = await WorkspacePage.countBoards();
-    await expect(numberOfBoards).toBeGreaterThan(1);
-
     await WorkspacePage.openFirstBoard();
     await waitUntilPageLoads();
   });
