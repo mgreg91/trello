@@ -1,4 +1,4 @@
-const { waitUntilElemDisplayed, waitAndClick } = require("../utils/waiters");
+const {waitUntilElemDisplayed, waitAndClick} = require('../utils/waiters');
 
 class WorkspacePage {
   get boardsTile() {
@@ -52,14 +52,14 @@ class WorkspacePage {
   async countBoards() {
     await this.boardsTab.click();
     await waitUntilElemDisplayed(this.boardsSectionList);
-    const boardsArray = await this.boardsSectionList.$$("li");
+    const boardsArray = await this.boardsSectionList.$$('li');
     const boardsArrayLength = await boardsArray.length;
     return boardsArrayLength;
   }
 
   async openFirstBoard() {
     await waitUntilElemDisplayed(this.boardsSectionList);
-    return await this.boardsSectionList.$$("li")[0].click();
+    return await this.boardsSectionList.$$('li')[0].click();
   }
 
   async logout() {

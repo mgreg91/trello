@@ -1,4 +1,4 @@
-const { waitUntilElemDisplayed, waitAndClick } = require("../utils/waiters");
+const {waitUntilElemDisplayed, waitAndClick} = require('../utils/waiters');
 
 class SearchPage {
   get inputSearchBar() {
@@ -19,7 +19,7 @@ class SearchPage {
 
   async getSearchResultTitle() {
     await waitUntilElemDisplayed(this.searchCardResult);
-    const searchresultTitle = await this.searchCardResult.getAttribute("title");
+    const searchresultTitle = await this.searchCardResult.getAttribute('title');
     return searchresultTitle;
   }
 

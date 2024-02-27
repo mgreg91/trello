@@ -1,25 +1,25 @@
-const { $ } = require("@wdio/globals");
-const { waitUntilPageLoads } = require("../utils/waiters");
+const {$} = require('@wdio/globals');
+const {waitUntilPageLoads} = require('../utils/waiters');
 
 class LoginPage {
   get inputUserEmail() {
-    return $("#user");
+    return $('#user');
   }
 
   get inputPassword() {
-    return $("#password");
+    return $('#password');
   }
 
   get passwordErrorMsg() {
-    return $("[data-testid='form-error']");
+    return $('[data-testid=\'form-error\']');
   }
 
   get btnLogin() {
-    return $("#login");
+    return $('#login');
   }
 
   get btnLoginSubmit() {
-    return $("#login-submit");
+    return $('#login-submit');
   }
 
   async login(email, password) {

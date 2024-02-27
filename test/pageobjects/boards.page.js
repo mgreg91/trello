@@ -1,4 +1,4 @@
-const { waitUntilElemDisplayed, waitAndClick } = require("../utils/waiters");
+const {waitUntilElemDisplayed, waitAndClick} = require('../utils/waiters');
 
 class BoardsPage {
   get boardsHeader() {
@@ -26,7 +26,7 @@ class BoardsPage {
   }
 
   get listItems() {
-    return $("#board").$$("li");
+    return $('#board').$$('li');
   }
 
   get btnListAddCard() {

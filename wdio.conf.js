@@ -4,7 +4,7 @@ exports.config = {
   // Runner Configuration
   // ====================
   // WebdriverIO supports running e2e tests as well as unit and component tests.
-  runner: "local",
+  runner: 'local',
   //
   // ==================
   // Specify Test Files
@@ -20,17 +20,17 @@ exports.config = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-  specs: ["./test/specs/**/*.js"],
+  specs: ['./test/specs/**/*.js'],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
   ],
   suites: {
-    login: ["./test/specs/login.test.js"],
-    logout: ["./test/specs/logout.test.js"],
-    create_boards: ["./test/specs/boards.test.js"],
-    create_card: ["./test/specs/card.test.js"],
-    search_card_board: ["./test/specs/search.test.js"],
+    login: ['./test/specs/login.test.js'],
+    logout: ['./test/specs/logout.test.js'],
+    create_boards: ['./test/specs/boards.test.js'],
+    create_card: ['./test/specs/card.test.js'],
+    search_card_board: ['./test/specs/search.test.js'],
   },
   //
   // ============
@@ -56,15 +56,15 @@ exports.config = {
   //
   capabilities: [
     {
-      browserName: "chrome",
-      "goog:chromeOptions": {
-        args: ["headless", "disable-gpu"],
+      'browserName': 'chrome',
+      'goog:chromeOptions': {
+        args: ['headless', 'disable-gpu'],
       },
     },
     {
-      browserName: "firefox",
-      "moz:firefoxOptions": {
-        args: ["-headless"],
+      'browserName': 'firefox',
+      'moz:firefoxOptions': {
+        args: ['-headless'],
       },
     },
   ],
@@ -76,7 +76,7 @@ exports.config = {
   // Define all options that are relevant for the WebdriverIO instance here
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: "error",
+  logLevel: 'error',
   //
   // Set specific log levels per logger
   // loggers:
@@ -124,7 +124,7 @@ exports.config = {
   //
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
-  framework: "mocha",
+  framework: 'mocha',
 
   //
   // The number of times to retry the entire specfile when it fails as a whole
@@ -139,12 +139,12 @@ exports.config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ["spec"],
+  reporters: ['spec'],
 
   // Options to be passed to Mocha.
   // See the full list at http://mochajs.org/
   mochaOpts: {
-    ui: "bdd",
+    ui: 'bdd',
     timeout: 60000,
   },
 
@@ -213,7 +213,7 @@ exports.config = {
    * Hook that gets executed before the suite starts
    * @param {object} suite suite details
    */
-  beforeSuite: function (suite) {
+  beforeSuite: function(suite) {
     browser.maximizeWindow();
   },
   /**

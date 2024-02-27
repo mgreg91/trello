@@ -1,9 +1,9 @@
-const { expect } = require("@wdio/globals");
-const LoginPage = require("../pageobjects/login.page");
-const BoardsPage = require("../pageobjects/boards.page");
-const SearchPage = require("../pageobjects/search.page");
-const WorkspacePage = require("../pageobjects/workspace.page");
-const { waitUntilPageLoads } = require("../utils/waiters");
+const {expect} = require('@wdio/globals');
+const LoginPage = require('../pageobjects/login.page');
+const BoardsPage = require('../pageobjects/boards.page');
+const SearchPage = require('../pageobjects/search.page');
+const WorkspacePage = require('../pageobjects/workspace.page');
+const {waitUntilPageLoads} = require('../utils/waiters');
 const {
   USER_EMAIL,
   USER_PW,
@@ -11,10 +11,10 @@ const {
   CARD_NAME,
   BOARD_NAME,
   SEARCH_URL,
-} = require("../utils/config");
+} = require('../utils/config');
 
-describe("Verify advanced search function", () => {
-  beforeEach(async function () {
+describe('Verify advanced search function', () => {
+  beforeEach(async function() {
     await LoginPage.open();
     await LoginPage.login(USER_EMAIL, USER_PW);
     await waitUntilPageLoads();
@@ -27,18 +27,18 @@ describe("Verify advanced search function", () => {
     await waitUntilPageLoads();
   });
 
-  afterEach(async function () {
+  afterEach(async function() {
     await browser.reloadSession();
   });
 
-  it("should show advanced search results based on query parameter", async () => {
+  it('should show advanced search results based on query parameter', async () => {
     await browser.url(SEARCH_URL);
     await SearchPage.startSearch(CARD_NAME);
     const searchResultTitle = await SearchPage.getSearchResultTitle();
     await expect(searchResultTitle).toEqual(CARD_NAME);
   });
 
-  it("should redirect to the board page when clicked on the board query", async () => {
+  it('should redirect to the board page when clicked on the board query', async () => {
     await browser.url(SEARCH_URL);
     await SearchPage.startSearch(BOARD_NAME);
     await SearchPage.loadBoardPage();
