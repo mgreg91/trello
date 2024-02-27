@@ -1,8 +1,7 @@
 const { $ } = require("@wdio/globals");
-const Page = require("./page");
 const { waitUntilPageLoads } = require("../utils/waiters");
 
-class LoginPage extends Page {
+class LoginPage {
   get inputUserEmail() {
     return $("#user");
   }
@@ -33,7 +32,7 @@ class LoginPage extends Page {
   }
 
   open() {
-    return super.open("login");
+    return browser.url(`https://trello.com/login`);
   }
 }
 

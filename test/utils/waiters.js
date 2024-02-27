@@ -31,7 +31,7 @@ async function waitUntilElemDisplayed(elem, timeout = 15000) {
   );
 }
 
-async function waitAndClick(elem, timeout = 5000) {
+async function waitAndClick(elem, timeout = 15000) {
   await elem.waitForDisplayed({ timeout });
   await elem.waitForClickable();
   await elem.click();

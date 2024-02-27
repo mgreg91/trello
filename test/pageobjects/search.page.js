@@ -1,21 +1,30 @@
-const { waitUntilElemDisplayed } = require("../utils/waiters");
-const SearchComponent = require("./components/search.component");
+const { waitUntilElemDisplayed, waitAndClick } = require("../utils/waiters");
 
 class SearchPage {
+  get inputSearchBar() {
+    return $('input[data-testid="advanced-search-input"]');
+  }
+
+  get searchCardResult() {
+    return $('a[data-testid="advanced-search-card-result-item"]');
+  }
+
+  get searchBoardResult() {
+    return $('a[data-testid="advanced-search-board-result-item"]');
+  }
+
   async startSearch(name) {
-    await SearchComponent.inputSearchBar.setValue(name);
+    await this.inputSearchBar.setValue(name);
   }
 
   async getSearchResultTitle() {
-    await waitUntilElemDisplayed(SearchComponent.searchCardResult);
-    const searchresultTitle =
-      await SearchComponent.searchCardResult.getAttribute("title");
+    await waitUntilElemDisplayed(this.searchCardResult);
+    const searchresultTitle = await this.searchCardResult.getAttribute("title");
     return searchresultTitle;
   }
 
   async loadBoardPage() {
-    await waitUntilElemDisplayed(SearchComponent.searchBoardResult);
-    (await SearchComponent.searchBoardResult).click();
+    await waitAndClick(this.searchBoardResult);
   }
 }
 module.exports = new SearchPage();
