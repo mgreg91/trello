@@ -12,6 +12,7 @@
     "test:create_boards": "wdio run ./wdio.conf.js --suite create_boards",
     "test:create_card": "wdio run ./wdio.conf.js --suite create_card",
     "test:search_card_board": "wdio run ./wdio.conf.js --suite search_card_board",
+    "test:dropbox": "newman run dropbox.collection.json -e dropbox.environment.json --delay-request 1000",
     "prepare": "husky"
   },
   "keywords": [
@@ -30,5 +31,8 @@
     "husky": "^9.0.11",
     "prettier": "^3.2.5",
     "prettier-eslint": "^16.3.0"
+  },
+  "dependencies": {
+    "newman": "^6.1.1"
   }
 }
