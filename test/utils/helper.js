@@ -1,5 +1,5 @@
 async function makeTextUrlCompatible(text) {
-  return text.toLowerCase().replaceAll(' ', '-');
+  return text.toLowerCase().replaceAll(" ", "-");
 }
 
-module.exports = {makeTextUrlCompatible};
+module.exports = { makeTextUrlCompatible };

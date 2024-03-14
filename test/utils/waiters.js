@@ -1,6 +1,6 @@
 async function waitUntilPageLoads(timeout = 60000) {
   await browser.waitUntil(
-      () => browser.execute(() => document.readyState === 'complete'),
+      () => browser.execute(() => document.readyState === "complete"),
       {
         timeout,
         timeoutMsg: `The page didn't load after ${timeout}ms`,
@@ -32,7 +32,7 @@ async function waitUntilElemDisplayed(elem, timeout = 15000) {
 }
 
 async function waitAndClick(elem, timeout = 15000) {
-  await elem.waitForDisplayed({timeout});
+  await elem.waitForDisplayed({ timeout });
   await elem.waitForClickable();
   await elem.click();
 }
