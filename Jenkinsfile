@@ -14,12 +14,12 @@ pipeline {
         }
         stage("run API tests job"){
             steps{
-                build job: "api_test_job", wait: true
+                build job: "trello_api_test_job", wait: true
             }
         }
         stage("run UI tests job"){
             steps{
-                build job: "ui_test_job", wait: true
+                build job: "trello_ui_test_job", wait: true
             }
         }
     }
