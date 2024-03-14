@@ -56,6 +56,12 @@ exports.config = {
   //
   capabilities: [
     {
+      "browserName": "chrome",
+      "goog:chromeOptions": {
+        args: ["headless", "disable-gpu"],
+      },
+    },
+    {
       "browserName": "firefox",
       "moz:firefoxOptions": {
         args: ["-headless"],
@@ -133,7 +139,17 @@ exports.config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ["spec"],
+  reporters: [
+    "spec",
+    [
+      "allure",
+      {
+        outputDir: "allure-results",
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+      },
+    ],
+  ],
 
   // Options to be passed to Mocha.
   // See the full list at http://mochajs.org/

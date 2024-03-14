@@ -13,6 +13,8 @@
     "test:create_card": "wdio run ./wdio.conf.js --suite create_card",
     "test:search_card_board": "wdio run ./wdio.conf.js --suite search_card_board",
     "test:dropbox": "newman run dropbox.collection.json -e dropbox.environment.json --delay-request 1000",
+    "report:generate": "allure generate allure-results/",
+    "report:open": "allure open",
     "prepare": "husky"
   },
   "keywords": [
@@ -22,6 +24,7 @@
   "author": "Gergő Mátyus",
   "license": "ISC",
   "devDependencies": {
+    "@wdio/allure-reporter": "^8.32.4",
     "@wdio/cli": "^8.32.3",
     "@wdio/local-runner": "^8.32.3",
     "@wdio/mocha-framework": "^8.32.3",
@@ -30,9 +33,7 @@
     "eslint-config-google": "^0.14.0",
     "husky": "^9.0.11",
     "prettier": "^3.2.5",
-    "prettier-eslint": "^16.3.0"
-  },
-  "dependencies": {
+    "prettier-eslint": "^16.3.0",
     "newman": "^6.1.1"
   }
 }
