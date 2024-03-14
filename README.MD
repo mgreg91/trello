@@ -38,3 +38,39 @@ The solution should be split into next layers:
 2. Business layer (should contain all functionality, related with business logic of the tested application)
 3. Tests layer (should contain automated tests, TAF configuration)
 4. Push the code to remote repository and create Merge Reque
+
+HOME TASK 3
+
+1. Familiarize with Dropbox API - https://www.dropbox.com/developers/documentation/http/documentation
+2. Implement at least 3 test scenarios using one of JS libraries like Axios, Got, SuperTest (it will be a plus) or Postman :
+
+   - Upload file
+   - Get File Metadata
+   - Delete file
+
+3. Add assertions for headers, status code and body of response
+4. Add script into package.json to run API tests through the CLI (if tests done in Postman use Newman tool)
+5. Push API tests to the remote repository and create a Merge Request
+
+HOME TASK 4
+
+1. Install Jenkins locally
+2. Create pipelines with 2 jobs where:
+   - The repo with tests will be cloned
+   - The 1-st job will run UI tests and 2-nd job will run API tests
+3. Set up the trigger to perform test every 2 hours 4. Demo it to your mentor
+
+HOME TASK 5
+
+1. Integrate both: spec and HTML reporter with Test Automation Framework
+2. Exclude generated report files from Git index
+3. Set up that spec report should show result in console
+4. Push implemented solution to Git and create Merge Request
+
+HOME TASK 6
+
+1. Set up Prettier and configure it
+2. Set up EsLint and configure it
+3. Add both scripts to package.json to run linters
+4. Run both linters on new CI job (place this job before jobs with UI and API tests)
+5. Push code to the remote repository and create Merge Request and demo this CI job to mentor
