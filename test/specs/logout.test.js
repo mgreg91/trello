@@ -5,7 +5,7 @@ const { waitUntilPageLoads } = require("../utils/waiters");
 const { USER_EMAIL, USER_PW, HOMEPAGE_URL } = require("../utils/config");
 
 describe("Verify the logging out function", () => {
-  beforeEach(async function () {
+  beforeEach(async () => {
     await LoginPage.open();
     await LoginPage.login(USER_EMAIL, USER_PW);
     await waitUntilPageLoads();

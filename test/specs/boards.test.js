@@ -7,7 +7,7 @@ const { makeTextUrlCompatible } = require("../utils/helper");
 const { USER_EMAIL, USER_PW, BOARD_NAME } = require("../utils/config");
 
 describe("Verify the creation of a new board", () => {
-  beforeEach(async function () {
+  beforeEach(async () => {
     await LoginPage.open();
     await LoginPage.login(USER_EMAIL, USER_PW);
     await waitUntilPageLoads();

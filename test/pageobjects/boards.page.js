@@ -1,50 +1,87 @@
-const BoardsComponent = require("./components/boards.component");
-const { waitUntilElemDisplayed } = require("../utils/waiters");
+const { waitUntilElemDisplayed, waitAndClick } = require("../utils/waiters");
 
 class BoardsPage {
+  get boardsHeader() {
+    return $("h1[data-testid=\"board-name-display\"]");
+  }
+
+  get newListButton() {
+    return $("button[data-testid=\"list-composer-button\"]");
+  }
+
+  get textAreaForList() {
+    return $$("textarea[data-testid=\"list-name-textarea\"]");
+  }
+
+  get btnAddList() {
+    return $("button[data-testid=\"list-composer-add-list-button\"]");
+  }
+
+  get listWrapper() {
+    return $("li[data-testid=\"list-wrapper\"]");
+  }
+
+  get labelTextName() {
+    return $$("h2[data-testid=\"list-name\"]");
+  }
+
+  get listItems() {
+    return $("#board").$$("li");
+  }
+
+  get btnListAddCard() {
+    return $$("button[data-testid=\"list-add-card-button\"]");
+  }
+
+  get txtCardTextArea() {
+    return $("textarea[data-testid=\"list-card-composer-textarea\"]");
+  }
+
+  get btnAddCard() {
+    return $("button[data-testid=\"list-card-composer-add-card-button\"]");
+  }
+
+  get listCardName() {
+    return $("a[data-testid=\"card-name\"]");
+  }
   async getBoardsHeaderText() {
-    await waitUntilElemDisplayed(BoardsComponent.boardsHeader);
-    const headerText = (await BoardsComponent.boardsHeader).getText();
+    await waitUntilElemDisplayed(this.boardsHeader);
+    const headerText = (await this.boardsHeader).getText();
     return headerText;
   }
 
   async createNewListItem(listname) {
-    await waitUntilElemDisplayed(BoardsComponent.newListButton);
-    await BoardsComponent.newListButton.click();
-    const numberOfLists = await BoardsComponent.textAreaForList.length;
-    await BoardsComponent.textAreaForList[numberOfLists - 1].setValue(listname);
-    await waitUntilElemDisplayed(BoardsComponent.btnAddList);
-    await BoardsComponent.btnAddList.click();
+    await waitAndClick(this.newListButton);
+    const numberOfLists = await this.textAreaForList.length;
+    await this.textAreaForList[numberOfLists - 1].setValue(listname);
+    await waitAndClick(this.btnAddList);
   }
 
   async isNewListCreated(listname) {
-    await waitUntilElemDisplayed(BoardsComponent.listWrapper);
-    const numberOfLabels = await BoardsComponent.labelTextName.length;
-    const labelName = await BoardsComponent.labelTextName[
-      numberOfLabels - 1
-    ].getText();
+    await waitUntilElemDisplayed(this.listWrapper);
+    const numberOfLabels = await this.labelTextName.length;
+    const labelName = await this.labelTextName[numberOfLabels - 1].getText();
     return labelName === listname;
   }
 
   async countLists() {
-    return await BoardsComponent.listItems.length;
+    return await this.listItems.length;
   }
 
   async createCard(cardname) {
-    await waitUntilElemDisplayed(BoardsComponent.btnListAddCard[0]);
-    const numberOfLists = await BoardsComponent.btnListAddCard.length;
-    await BoardsComponent.btnListAddCard[numberOfLists - 1].click();
+    await waitUntilElemDisplayed(this.btnListAddCard[0]);
+    const numberOfLists = await this.btnListAddCard.length;
+    await this.btnListAddCard[numberOfLists - 1].click();
 
-    await waitUntilElemDisplayed(BoardsComponent.txtCardTextArea);
-    await BoardsComponent.txtCardTextArea.setValue(cardname);
+    await waitUntilElemDisplayed(this.txtCardTextArea);
+    await this.txtCardTextArea.setValue(cardname);
 
-    await waitUntilElemDisplayed(BoardsComponent.btnAddCard);
-    await BoardsComponent.btnAddCard.click();
+    await waitAndClick(this.btnAddCard);
   }
 
   async isNewListCardCreated(cardname) {
-    await waitUntilElemDisplayed(BoardsComponent.listCardName);
-    const cardElementName = (await BoardsComponent.listCardName).getText();
+    await waitUntilElemDisplayed(this.listCardName);
+    const cardElementName = (await this.listCardName).getText();
     return (await cardElementName) === cardname;
   }
 }

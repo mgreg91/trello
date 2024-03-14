@@ -14,7 +14,7 @@ describe("Verify logging in to Trello with negative and positive cases", () => {
 
     await expect(LoginPage.passwordErrorMsg).toBeDisplayed();
     await expect(LoginPage.passwordErrorMsg).toHaveTextContaining(
-      LOGIN_ERROR_MSG
+        LOGIN_ERROR_MSG,
     );
   });
 

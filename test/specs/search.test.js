@@ -14,7 +14,7 @@ const {
 } = require("../utils/config");
 
 describe("Verify advanced search function", () => {
-  beforeEach(async function () {
+  beforeEach(async () => {
     await LoginPage.open();
     await LoginPage.login(USER_EMAIL, USER_PW);
     await waitUntilPageLoads();
@@ -27,7 +27,7 @@ describe("Verify advanced search function", () => {
     await waitUntilPageLoads();
   });
 
-  afterEach(async function () {
+  afterEach(async () => {
     await browser.reloadSession();
   });
 

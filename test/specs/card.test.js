@@ -12,7 +12,7 @@ const {
 } = require("../utils/config");
 
 describe("Verifying the creation of a list item and a card", () => {
-  beforeEach(async function () {
+  beforeEach(async () => {
     await browser.maximizeWindow();
     await LoginPage.open();
     await LoginPage.login(USER_EMAIL, USER_PW);
@@ -23,7 +23,7 @@ describe("Verifying the creation of a list item and a card", () => {
     await waitUntilPageLoads();
   });
 
-  afterEach(async function () {
+  afterEach(async () => {
     await browser.reloadSession();
   });
 

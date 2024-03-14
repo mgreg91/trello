@@ -1,36 +1,71 @@
-const NavibarComponent = require("./components/navibar.component");
-const WorkspaceComponent = require("./components/workspace.component");
 const { waitUntilElemDisplayed, waitAndClick } = require("../utils/waiters");
 
 class WorkspacePage {
+  get boardsTile() {
+    return $("div[class=\"board-tile mod-add\"]");
+  }
+
+  get boardsTab() {
+    return $("a[data-testid=\"home-team-boards-tab\"]");
+  }
+
+  get boardsSectionList() {
+    return $("ul[class=\"boards-page-board-section-list\"]");
+  }
+
+  get btnCreate() {
+    return $("button[data-testid=\"header-create-menu-button\"]");
+  }
+
+  get btnCreateBoard() {
+    return $("button[data-testid=\"header-create-board-button\"]");
+  }
+
+  get txtCreateBoardTitle() {
+    return $("input[data-testid=\"create-board-title-input\"]");
+  }
+
+  get btnCreateBoardSubmit() {
+    return $("button[data-testid=\"create-board-submit-button\"]");
+  }
+
+  get iconProfileMenuAvater() {
+    return $("div[data-testid=\"header-member-menu-avatar\"]");
+  }
+
+  get btnLogout() {
+    return $("button[data-testid=\"account-menu-logout\"]");
+  }
+
+  get submitLogout() {
+    return $("button[data-testid=\"logout-button\"]");
+  }
+
   async createBoard(boardName) {
-    await waitUntilElemDisplayed(WorkspaceComponent.boardsTile);
-    await waitAndClick(NavibarComponent.btnCreate);
-    await waitAndClick(NavibarComponent.btnCreateBoard);
-    await NavibarComponent.txtCreateBoardTitle.setValue(boardName);
-    await waitAndClick(NavibarComponent.btnCreateBoardSubmit);
+    await waitUntilElemDisplayed(this.boardsTile);
+    await waitAndClick(this.btnCreate);
+    await waitAndClick(this.btnCreateBoard);
+    await this.txtCreateBoardTitle.setValue(boardName);
+    await waitAndClick(this.btnCreateBoardSubmit);
   }
 
   async countBoards() {
-    await WorkspaceComponent.boardsTab.click();
-    await waitUntilElemDisplayed(WorkspaceComponent.boardsSectionList);
-    const boardsArray = await WorkspaceComponent.boardsSectionList.$$("li");
+    await this.boardsTab.click();
+    await waitUntilElemDisplayed(this.boardsSectionList);
+    const boardsArray = await this.boardsSectionList.$$("li");
     const boardsArrayLength = await boardsArray.length;
     return boardsArrayLength;
   }
 
   async openFirstBoard() {
-    await waitUntilElemDisplayed(WorkspaceComponent.boardsSectionList);
-    return await WorkspaceComponent.boardsSectionList.$$("li")[0].click();
+    await waitUntilElemDisplayed(this.boardsSectionList);
+    return await this.boardsSectionList.$$("li")[0].click();
   }
 
   async logout() {
-    await waitUntilElemDisplayed(NavibarComponent.iconProfileMenuAvater);
-    await NavibarComponent.iconProfileMenuAvater.click();
-    await waitUntilElemDisplayed(NavibarComponent.btnLogout);
-    await NavibarComponent.btnLogout.click();
-    await waitUntilElemDisplayed(NavibarComponent.submitLogout);
-    await NavibarComponent.submitLogout.click();
+    await waitAndClick(this.iconProfileMenuAvater);
+    await waitAndClick(this.btnLogout);
+    await waitAndClick(this.submitLogout);
   }
 }
 module.exports = new WorkspacePage();

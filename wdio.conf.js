@@ -56,14 +56,13 @@ exports.config = {
   //
   capabilities: [
     {
-      browserName: "chrome",
-      browserVersion: "122.0.6261.39",
+      "browserName": "chrome",
       "goog:chromeOptions": {
         args: ["headless", "disable-gpu"],
       },
     },
     {
-      browserName: "firefox",
+      "browserName": "firefox",
       "moz:firefoxOptions": {
         args: ["-headless"],
       },
@@ -214,7 +213,7 @@ exports.config = {
    * Hook that gets executed before the suite starts
    * @param {object} suite suite details
    */
-  beforeSuite: function (suite) {
+  beforeSuite: function(suite) {
     browser.maximizeWindow();
   },
   /**
