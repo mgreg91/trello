@@ -12,6 +12,17 @@ pipeline {
                 echo "build successfull"
             }
         }
+        stage("run code formatter and linter"){
+            steps{
+                echo "Running prettier"
+                bat "npm run format:fix"
+                echo "Prettier fix done"
+                
+                echo "Running eslint"
+                bat "npm run lint"
+                echo "Linting done"
+            }
+        }
         stage("run API tests job"){
             steps{
                 build job: "trello_api_test_job", wait: true
