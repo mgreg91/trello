@@ -1,3 +1,5 @@
 node_modules
 allure-report
 allure-results
+dropbox.collection.json
+dropbox.environment.json
