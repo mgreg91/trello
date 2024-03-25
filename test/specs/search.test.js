@@ -34,6 +34,7 @@ describe("Verify advanced search function", () => {
   it("should show advanced search results based on query parameter", async () => {
     await browser.url(SEARCH_URL);
     await SearchPage.startSearch(CARD_NAME);
+
     const searchResultTitle = await SearchPage.getSearchResultTitle();
     await expect(searchResultTitle).toEqual(CARD_NAME);
   });

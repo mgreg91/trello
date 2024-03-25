@@ -1,0 +1,39 @@
+{
+  "id": "5182e063-b549-405d-9b4e-d680b873a034",
+  "name": "Dropbox",
+  "values": [
+    {
+      "key": "appKey",
+      "value": "yu5xrm5ibivcnya",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "appSecret",
+      "value": "5imi4bqzfw18fe9",
+      "type": "secret",
+      "enabled": true
+    },
+    {
+      "key": "fileName",
+      "value": "terkep.png",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "size",
+      "value": "194102",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "token",
+      "value": "sl.BxPY9epvjFFmtvEa47CW0B9ZL0iZEEgXLv-uHIbag2UpwhxMoHuHGLFkggYaIKTmXlCbBBw5c8AmItq3wAR0MdYQJSQKthTB309gpDpFOdD7PxGSND_RvMrbaDw0HHOLHeGr9kyFyC7BtQHlh_mNz70",
+      "type": "secret",
+      "enabled": true
+    }
+  ],
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2024-03-14T13:38:08.329Z",
+  "_postman_exported_using": "Postman/10.24.1"
+}
