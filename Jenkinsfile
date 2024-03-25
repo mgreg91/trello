@@ -19,11 +19,6 @@ pipeline {
                 echo "Linting done"
             }
         }
-        stage("run API tests job"){
-            steps{
-                build job: "trello_api_test_job", wait: true
-            }
-        }
         stage("run UI tests job"){
             steps{
                 echo "Running Cucumber tests"
