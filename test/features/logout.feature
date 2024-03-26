@@ -1,3 +1,4 @@
+#Example of logging out
 @logout
 Feature: Logging out from Trello
   As a user

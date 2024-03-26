@@ -1,3 +1,4 @@
+#Example of creating a list with a card inside
 @create_card
 Feature: Creating new list items with cards
   As a user

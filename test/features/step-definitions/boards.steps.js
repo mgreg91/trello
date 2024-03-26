@@ -22,8 +22,8 @@ When("the user clicks on the Create new board button", async () => {
   await waitAndClick(WorkspacePage.btnCreateBoard);
 });
 
-When("the user provides a board name", async () => {
-  await WorkspacePage.txtCreateBoardTitle.setValue(BOARD_NAME);
+When("the user provides {string} as a board name", async (boardname) => {
+  await WorkspacePage.txtCreateBoardTitle.setValue(boardname);
 });
 
 When("the user clicks on the Create button inside the form", async () => {
