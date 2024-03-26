@@ -12,25 +12,22 @@ pipeline {
                 echo "build successfull"
             }
         }
-        stage("run code formatter and linter"){
+        stage("run code linter"){
             steps{
-                echo "Running prettier"
-                bat "npm run format:fix"
-                echo "Prettier fix done"
-                
                 echo "Running eslint"
                 bat "npm run lint"
                 echo "Linting done"
             }
         }
-        stage("run API tests job"){
-            steps{
-                build job: "trello_api_test_job", wait: true
-            }
-        }
         stage("run UI tests job"){
             steps{
-                build job: "trello_ui_test_job", wait: true
+                echo "Running Cucumber tests"
+                bat "npm run test:cucumber:login"
+                bat "npm run test:cucumber:logout"
+                bat "npm run test:cucumber:create_boards"
+                bat "npm run test:cucumber:create_card"
+                bat "npm run test:cucumber:search_card_board"
+                echo "Cucumber tests done"
             }
         }
     }
