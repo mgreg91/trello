@@ -26,9 +26,9 @@ When("the user clicks on the Add new list button", async () => {
   await waitAndClick(BoardsPage.newListButton);
 });
 
-When("the user types in a name for the list", async () => {
+When("the user types in {string} for the list", async (listname) => {
   const numberOfLists = await BoardsPage.textAreaForList.length;
-  await BoardsPage.textAreaForList[numberOfLists - 1].setValue(LIST_NAME);
+  await BoardsPage.textAreaForList[numberOfLists - 1].setValue(listname);
 });
 
 When("the user clicks on the Add list button", async () => {
@@ -56,9 +56,9 @@ When("the user clicks on the Add a card button", async () => {
   await waitAndClick(BoardsPage.btnListAddCard[numberOfLists - 1]);
 });
 
-When("the user gives a name to the card", async () => {
+When("the user gives a {string} to the card", async (cardname) => {
   await waitUntilElemDisplayed(BoardsPage.txtCardTextArea);
-  await BoardsPage.txtCardTextArea.setValue(CARD_NAME);
+  await BoardsPage.txtCardTextArea.setValue(cardname);
 });
 
 When("the user clicks on the Add card button", async () => {
